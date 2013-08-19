@@ -14,7 +14,7 @@
 	</path>
 
 	<target name="dist" depends="compile,test">
-		<jar jarfile="${dist.dir}/${name}.jar" compress="true" basedir="${classes.dir}" />
+		<jar jarfile="${dist.dir}/JFunctionalUtils.jar" compress="true" basedir="${classes.dir}" />
 	</target>
 
 	<target name="build" depends="compile,test">
