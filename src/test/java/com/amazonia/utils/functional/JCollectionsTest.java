@@ -1,4 +1,4 @@
-package JCollections;
+package com.amazonia.utils.functional;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,10 +10,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pengfeil.utils.functional.JCollections;
-import pengfeil.utils.functional.interfaces.IFilter;
-import pengfeil.utils.functional.interfaces.IMapper;
-import pengfeil.utils.functional.interfaces.IReducer;
+import com.amazonia.utils.functional.JCollections;
+import com.amazonia.utils.functional.interfaces.IFilter;
+import com.amazonia.utils.functional.interfaces.IMapper;
+import com.amazonia.utils.functional.interfaces.IReducer;
+
 
 /**
  * Unit test for class JCollections

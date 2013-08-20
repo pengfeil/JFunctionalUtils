@@ -1,4 +1,4 @@
-package pengfeil.utils.functional;
+package com.amazonia.utils.functional;
 
 import java.util.List;
 

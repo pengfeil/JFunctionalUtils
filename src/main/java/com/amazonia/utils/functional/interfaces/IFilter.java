@@ -1,4 +1,4 @@
-package pengfeil.utils.functional.interfaces;
+package com.amazonia.utils.functional.interfaces;
 /**
  * Interface used for filter.
  * It's a replacement for function parameter in functional language.

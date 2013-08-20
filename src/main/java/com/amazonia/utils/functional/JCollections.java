@@ -1,11 +1,12 @@
-package pengfeil.utils.functional;
+package com.amazonia.utils.functional;
 
 import java.util.Collection;
 
-import pengfeil.utils.functional.exceptions.IllegalParameterException;
-import pengfeil.utils.functional.interfaces.IFilter;
-import pengfeil.utils.functional.interfaces.IMapper;
-import pengfeil.utils.functional.interfaces.IReducer;
+import com.amazonia.utils.functional.exceptions.IllegalParameterException;
+import com.amazonia.utils.functional.interfaces.IFilter;
+import com.amazonia.utils.functional.interfaces.IMapper;
+import com.amazonia.utils.functional.interfaces.IReducer;
+
 
 /**
  * Functional methods set for collections. Such as filter or map operations

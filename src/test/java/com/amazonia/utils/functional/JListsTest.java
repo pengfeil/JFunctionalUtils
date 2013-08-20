@@ -1,4 +1,4 @@
-package JCollections;
+package com.amazonia.utils.functional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import pengfeil.utils.functional.JLists;
+import com.amazonia.utils.functional.JLists;
+
 
 /**
  * Unit test for class JLists
