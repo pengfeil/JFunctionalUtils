@@ -1,12 +1,12 @@
 package com.amazonia.utils.functional;
 
 import java.util.Collection;
+import java.util.Comparator;
 
 import com.amazonia.utils.functional.exceptions.IllegalParameterException;
 import com.amazonia.utils.functional.interfaces.IFilter;
 import com.amazonia.utils.functional.interfaces.IMapper;
 import com.amazonia.utils.functional.interfaces.IReducer;
-
 
 /**
  * Functional methods set for collections. Such as filter or map operations
@@ -53,18 +53,19 @@ public class JCollections<T> {
 		}
 		return rCol;
 	}
-	
+
 	/**
-	 * A reducer implementation. Implement reducer to every pair element in collection and
-	 * return a single element as result
+	 * A reducer implementation. Implement reducer to every pair element in
+	 * collection and return a single element as result
 	 * 
 	 * @param col
 	 * @param reducer
 	 * @return
 	 */
 	public T doReducer(Collection<T> col, IReducer<T> reducer) {
-		if(col.size()<=0)
-			throw new IllegalParameterException("Collection can't be empty here!");
+		if (col.size() <= 0)
+			throw new IllegalParameterException(
+					"Collection can't be empty here!");
 		T initVal = col.iterator().next();
 		col.remove(initVal);
 		T result = initVal;
@@ -73,5 +74,55 @@ public class JCollections<T> {
 		}
 		col.add(initVal);
 		return result;
+	}
+
+	/**
+	 * Union the two input collection into one and return a new collection
+	 * represent for result. Type of c1 will be used as type of result
+	 * collection
+	 * 
+	 * @param c1
+	 *            Collection<T>
+	 * @param c2
+	 *            Collection<T>
+	 * @return
+	 * @throws InstantiationException
+	 * @throws IllegalAccessException
+	 */
+	@SuppressWarnings("unchecked")
+	public Collection<T> doUnion(Collection<T> c1, Collection<T> c2)
+			throws InstantiationException, IllegalAccessException {
+		Collection<T> rCol = c1.getClass().newInstance();
+		insertItem(c1, rCol);
+		insertItem(c2, rCol);
+		return rCol;
+	}
+
+	private void insertItem(Collection<T> from, Collection<T> to) {
+		for (T t : from) {
+			to.add(t);
+		}
+	}
+
+	/**
+	 * Get the 'max' item in collection
+	 * 
+	 * @param c
+	 *            collection
+	 * @param com
+	 *            Comparator to used
+	 * @return
+	 */
+	public T max(Collection<T> c, Comparator<T> com) {
+		if (c.size() <= 0)
+			throw new IllegalParameterException(
+					"Collection can't be empty here!");
+		T max = c.iterator().next();
+		for (T t : c) {
+			if (com.compare(t, max) > 0) {
+				max = t;
+			}
+		}
+		return max;
 	}
 }
