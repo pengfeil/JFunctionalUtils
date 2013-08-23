@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * Functional methods set for lists. Such as get element by negative position
  * 
+ * This is NOT thread safe!
+ * 
  * @author pengfeil
  * 
  * @param <T>

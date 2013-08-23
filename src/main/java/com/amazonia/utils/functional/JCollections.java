@@ -11,6 +11,8 @@ import com.amazonia.utils.functional.interfaces.IReducer;
 /**
  * Functional methods set for collections. Such as filter or map operations
  * 
+ * This is NOT thread safe!
+ * 
  * @author pengfeil
  * 
  */
