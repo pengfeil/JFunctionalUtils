@@ -3,6 +3,7 @@ dist/*
 doc/*
 index/*
 bin/*
+data/*
 target/*
 .classpath
 .project
