@@ -9,7 +9,7 @@ public class JFInitializerTest {
 	@Test
 	public void testRegister() throws SecurityException, ClassNotFoundException {
 		JFInitializer.getInstance().initialize(null);
-		JFInitializer.getInstance().registerFork(AnnotationHandlerTest.class);
+		JFInitializer.getInstance().register(AnnotationHandlerTest.class);
 	}
 
 	@Test

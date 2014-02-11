@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
 import com.amazonia.utils.functional.annotations.Fork;
+import com.amazonia.utils.functional.annotations.Join;
 import com.amazonia.utils.functional.config.JFConfig.Key;
 import com.amazonia.utils.functional.exceptions.UninitializedException;
 
@@ -106,19 +107,26 @@ public class JFInitializer {
 	}
 
 	/**
-	 * register method in cls to be forked in mutiThread
+	 * register fork method in cls to be forked in mutiThread
 	 * 
 	 * @param cls
 	 *            class type of Class
 	 * @throws SecurityException
 	 * @throws ClassNotFoundException
 	 */
-	public void registerFork(Class<?> cls) throws SecurityException,
+	public void register(Class<?> cls) throws SecurityException,
 			ClassNotFoundException {
 		AnnotationHandler ah = new AnnotationHandler(cls);
-		List<Method> methods = ah.getMethodsByAnnotation(Fork.class);
-		for (Method m : methods) {
-			getConfig().registeMethod(new Key(cls.getName(), m.getName()), m);
+		List<Method> mForks = ah.getMethodsByAnnotation(Fork.class);
+		List<Method> mJoins = ah.getMethodsByAnnotation(Join.class);
+		for (Method m : mForks) {
+			Fork annotation = m.getAnnotation(Fork.class);
+			getConfig().registeMethod(new Key(cls.getName(), m.getName()), m,
+					annotation.forkNumber());
+		}
+		for (Method m : mJoins) {
+			getConfig()
+					.registeMethod(new Key(cls.getName(), m.getName()), m, 1);
 		}
 	}
 }

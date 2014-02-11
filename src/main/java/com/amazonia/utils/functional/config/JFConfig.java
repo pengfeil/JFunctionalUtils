@@ -54,13 +54,19 @@ public class JFConfig {
 	}
 
 	private HashMap<Key, Method> methodMap = new HashMap<Key, Method>();
+	private HashMap<Key, Integer> forkNumMap = new HashMap<Key, Integer>();
 
-	public void registeMethod(Key key, Method m) {
+	public void registeMethod(Key key, Method m, int forkNum) {
 		methodMap.put(key, m);
+		forkNumMap.put(key, forkNum);
 	}
 
 	public Method getMethodByKey(Key key) {
 		return methodMap.get(key);
+	}
+
+	public int getForkNumByKey(Key key) {
+		return forkNumMap.get(key);
 	}
 
 	public void clear() {

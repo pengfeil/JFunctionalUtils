@@ -18,8 +18,7 @@ public class AnnotationHandler {
 	/**
 	 * constructor of AnnotationHandler
 	 * 
-	 * @param packagePath
-	 *            package to handle
+	 * @param Class Class to handle
 	 * @throws ClassNotFoundException
 	 * @throws SecurityException
 	 * @throws URISyntaxException
